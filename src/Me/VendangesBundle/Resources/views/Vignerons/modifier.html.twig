@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Modifier mon annonce{% endblock %}
+
+{% block login %}
+	{{ include('MeVendangesBundle:Vignerons:connexion.html.twig') }}
+{% endblock %}
+
+{% block sousheader %}
+	{{ include('MeVendangesBundle:Vignerons:sousheader.html.twig') }}
+{% endblock %}
+
+{% block motdepasse %}{% endblock %}
+
+{% block body %}
+<div id="page">
+	{% for flash in app.session.flashbag.get('notice') %}
+		<div class="alert">{{ flash }}</div>
+	{% endfor %}
+	<div class="contenugauche">
+		<h2>Passer une nouvelle annonce</h2>
+		<form action="{{ path('vendanges_vignerons_modifier_annonce', {'id': annonce.id}) }}" method="post">
+			{{ form_errors(form) }}
+			{{ form_widget(form.titre, { 'attr': {'placeholder': 'Titre'}}) }}<br />
+
+			{{ form_label(form.dateDebut, 'Date de début') }}
+			{{ form_widget(form.dateDebut) }}
+
+			{{ form_label(form.dateFin, 'Date de fin') }}
+			{{ form_widget(form.dateFin) }}
+
+			{{ form_row(form.logement) }}
+			{{ form_row(form.repas) }}
+			{{ form_widget(form.remuneration, { 'attr': {'placeholder': 'Rémuneration'}}) }}<br />
+			{{ form_widget(form.texte, { 'attr': {'placeholder': 'Description'}}) }}<br />
+			{{ form_widget(form.places, { 'attr': {'placeholder': 'Nombre de places'}}) }}<br />
+
+			{{ form_row(form.active) }}
+
+			<input type="submit" value="Modifier l'annonce">
+		</form>
+	</div>
+</div>
+{% endblock %}

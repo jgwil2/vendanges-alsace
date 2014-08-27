@@ -1,0 +1,73 @@
+{% extends '::base.html.twig' %}
+
+{% block title%}Gérer mon profil{% endblock %}
+
+{% block login %}
+	{{ include('MeVendangesBundle:Vendangeurs:connexion.html.twig') }}
+{% endblock %}
+
+{% block sousheader %}
+	{{ include('MeVendangesBundle:Vendangeurs:sousheader.html.twig') }}
+{% endblock %}
+
+{% block motdepasse %}{% endblock %}
+
+{% block body %}
+<div id="page">
+	{% for flash in app.session.flashbag.get('notice') %}
+		<div class="alert">{{ flash }}</div>
+	{% endfor %}
+	<div class="contenugauche">
+		<form action="{{ path('vendanges_vendangeurs_mon_profil') }}" method="POST" {{ form_enctype(form) }} >
+			{{ form_errors(form) }}
+
+			{{ form_label(form.prenom, 'Prénom') }}<br />
+			{{ form_widget(form.prenom, { 'attr': {'class': 'petitchamp'}}) }}<br />
+
+			{{ form_label(form.nom, 'Nom') }}<br />
+			{{ form_widget(form.nom, { 'attr': {'class': 'petitchamp'}}) }}<br />
+
+			{{ form_label(form.adresse, 'Adresse') }}<br />
+			{{ form_widget(form.adresse, { 'attr': {'class': 'grandchamp'}}) }}<br />
+
+			{{ form_label(form.code, 'Code postal') }}<br />
+			{{ form_widget(form.code, { 'attr': {'class': 'petitchamp'}}) }}<br />
+
+			{{ form_label(form.ville, 'Ville') }}<br />
+			{{ form_widget(form.ville, { 'attr': {'class': 'petitchamp'}}) }}<br />
+
+			{{ form_label(form.pays, 'Pays') }}<br />
+			{{ form_widget(form.pays, { 'attr': { 'class': 'petitchamp' }}) }}<br />
+
+			{{ form_label(form.email, 'Adresse email') }}<br />
+			{{ form_widget(form.email, { 'attr': {'class': 'grandchamp'}}) }}<br />
+
+			{{ form_label(form.tel, 'Téléphone') }}<br />
+			{{ form_widget(form.tel, { 'attr': {'class': 'grandchamp'}}) }}<br />
+
+			{{ form_label(form.dateDebut, 'Date de début souhaitée') }}<br />
+			{{ form_widget(form.dateDebut) }}
+
+			{{ form_label(form.dateFin, 'Date de fin souhaitée') }}<br />
+			{{ form_widget(form.dateFin) }}
+
+			{{ form_label(form.tracteur, 'Je peux conduire un tracteur') }}<br />
+			{{ form_widget(form.tracteur) }}<br />
+
+			{{ form_label(form.vehicule, 'Je possède un véhicule') }}<br />
+			{{ form_widget(form.vehicule) }}<br />
+
+			{{ form_label(form.motivation, 'Motivation') }}<br />
+			{{ form_widget(form.motivation) }}<br />
+
+			{{ form_label(form.disponible, 'Activer mon profil*') }}
+			{{ form_widget(form.disponible) }}<br />
+
+			{{ form_rest(form) }}
+			<input type="submit" value="Modifier" />
+		</form>
+		<h4><a href="{{ path('vendanges_vendangeurs') }}">Retourner à l'espace vendangeur</a></h4>
+		<small>*En activant mon profil, j'apparais dans les résultats des recherches des vignerons</small>	
+	</div>
+</div>
+{% endblock %}

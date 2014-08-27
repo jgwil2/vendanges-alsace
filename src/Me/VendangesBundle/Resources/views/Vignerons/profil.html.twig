@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block title%}Gérer mon profil{% endblock %}
+
+{% block login %}
+	{{ include('MeVendangesBundle:Vignerons:connexion.html.twig') }}
+{% endblock %}
+
+{% block sousheader %}
+	{{ include('MeVendangesBundle:Vignerons:sousheader.html.twig') }}
+{% endblock %}
+
+{% block motdepasse %}{% endblock %}
+
+{% block body %}
+<div id="page">
+	{% for flash in app.session.flashbag.get('notice') %}
+		<div class="alert">{{ flash }}</div>
+	{% endfor %}
+	<div class="contenugauche">
+		<!--<img class="left" src="/uploads/{{ vigneron.photoPath }}" width="300" height="300">-->
+		<form action="{{ path('vendanges_vignerons_mon_profil') }}" method="POST" {{ form_enctype(form) }} >
+			{{ form_errors(form) }}
+
+			{{ form_label(form.nom, 'Nom du domaine') }}<br />
+			{{ form_widget(form.nom, { 'attr': {'class': 'grandchamp'}}) }}<br />
+
+			{{ form_label(form.adresse, 'Adresse') }}<br />
+			{{ form_widget(form.adresse, { 'attr': {'class': 'grandchamp'}}) }}<br />
+
+			{{ form_label(form.code, 'Code postal') }}<br />
+			{{ form_widget(form.code, { 'attr': {'class': 'petitchamp'}}) }}<br />
+
+			{{ form_label(form.ville, 'Ville') }}<br />
+			{{ form_widget(form.ville, { 'attr': {'class': 'petitchamp'}}) }}<br />
+
+			{{ form_label(form.email, 'Adresse email') }}<br />
+			{{ form_widget(form.email, { 'attr': {'class': 'grandchamp'}}) }}<br />
+
+			{{ form_label(form.site, 'Site web') }}<br />
+			{{ form_widget(form.site, { 'attr': {'class': 'grandchamp'}}) }}<br />
+
+			{{ form_label(form.presentation, 'Présentation') }}<br />
+			{{ form_widget(form.presentation) }}<br />
+
+			{# form_label(form.photo, 'Nouvelle photo') }}
+			{{ form_widget(form.photo) #}<br />
+
+			{{ form_rest(form) }}
+			<input type="submit" value="Modifier" />
+		</form>
+		<h4><a href="{{ path('vendanges_vignerons') }}">Retourner à l'espace vigneron</a></h4>
+	</div>
+</div>
+{% endblock %}

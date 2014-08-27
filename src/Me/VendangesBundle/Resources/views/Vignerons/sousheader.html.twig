@@ -1,0 +1,35 @@
+<!-- début sousheader -->
+<div id="sousheader">Espace Vigneron</div>
+<!-- // sousheader -->
+
+<div id="menuvignerons">
+	{% if app.user and app.user.roles[0] == 'ROLE_VIGNERON' %}
+	<a href="{{ path('vendanges_vignerons_mon_profil') }}">
+		<div class="boutonnav">GERER VOTRE PROFIL<br/>DE VIGNERON</div>
+	</a>
+	{% else %}
+	<a href="#inscription" class="inscription">
+		<div class="boutonnav">CREER VOTRE PROFIL<br/>DE VIGNERON</div>
+	</a>
+	{% endif %}
+
+	{% if app.user and app.user.roles[0] == 'ROLE_VIGNERON' %}
+	<a href="{{ path('vendanges_vignerons_nouvelle_annonce')}}">
+		<div class="boutonnav">PASSER UNE ANNONCE<br />D'EMPLOI</div>
+	</a>
+	{% else %}
+	<a href="#" class="incliquable">
+		<div class="boutonnav">PASSER UNE ANNONCE<br />D'EMPLOI</div>
+	</a>
+	{% endif %}
+
+	{% if app.user and app.user.roles[0] == 'ROLE_VIGNERON' %}
+	<a href="{{ path('vendanges_vignerons_consulter_profils') }}">
+		<div class="boutonnav">CONSULTER LES PROFILS<br />DES VENDANGEURS</div>
+	</a>
+	{% else %}
+	<a href="#" class="incliquable">
+		<div class="boutonnav">CONSULTER LES PROFILS<br />DES VENDANGEURS</div>
+	</a>
+	{% endif %}
+</div>

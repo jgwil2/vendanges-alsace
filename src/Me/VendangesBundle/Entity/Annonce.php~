@@ -1,0 +1,70 @@
+<?php
+
+namespace Me\VendangesBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="annonces")
+ */
+class Annonce
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+	protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+	protected $titre;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+	protected $dateDebut;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+	protected $dateFin;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+	protected $logement;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+	protected $repas;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+	protected $remuneration;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+	protected $texte;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+	protected $places;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+	protected $active;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Vigneron", inversedBy="annonces")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+	protected $vigneron;
+}

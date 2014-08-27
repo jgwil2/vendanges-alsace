@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Vendanges Alsace{% endblock %}
+
+{% block login %}{% endblock %}
+{% block motdepasse %}{% endblock %}
+{% block inscription %}{% endblock %}
+
+{% block body %}
+
+<div id="homepage">
+ 
+<a href="{{ path('vendanges_vignerons') }}">
+	<div class="blocvignerons">
+		<h1>Vignerons</h1>
+		<div class="soush1">Je propose un emploi de vendangeur</div>
+	</div>
+</a>
+ 
+ 
+<a href="{{ path('vendanges_vendangeurs') }}">
+	<div class="blocvendangeurs">
+		<h1>Vendangeurs</h1>
+		<div class="soush1">Je veux faire les vendanges</div>
+	</div>
+</a>
+ 
+</div>
+
+{% endblock %}

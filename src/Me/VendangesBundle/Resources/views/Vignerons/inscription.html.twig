@@ -1,0 +1,24 @@
+
+	<div id="inscription" rel="inscription">
+		<div class="fermeture"><a  href="#">X</a></div>
+		<h2>INSCRIPTION VIGNERON</h2>
+			<form action="{{ path('vendanges_vignerons_inscription') }}" method="POST" {{ form_enctype(form) }} >
+			{{ form_errors(form) }}
+
+			{{ form_widget(form.nom, { 'attr': {'placeholder': 'Nom du domaine', 'class': 'grandchamp'}}) }}
+			{{ form_widget(form.adresse, { 'attr': {'placeholder': 'Adresse', 'class': 'grandchamp'}}) }}
+			{{ form_widget(form.code, { 'attr': {'placeholder': 'Code postal', 'class': 'petitchamp'}}) }}
+			{{ form_widget(form.ville, { 'attr': {'placeholder': 'Ville', 'class': 'petitchamp'}}) }}
+			{{ form_widget(form.email, { 'attr': {'placeholder': 'Adresse email', 'class': 'grandchamp'}}) }}
+			{{ form_widget(form.site, { 'attr': {'placeholder': 'Site web', 'class': 'grandchamp'}}) }}
+			{{ form_widget(form.presentation, { 'attr': {'placeholder': 'Présentation'}}) }}
+
+			{# form_label(form.photo, 'Photo du domaine') #}
+			{# form_widget(form.photo) #}
+
+			{{ form_widget(form.password, { 'attr': {'placeholder': 'Mot de passe', 'class': 'petitchamp'}}) }}
+
+			{{ form_rest(form) }}
+			<input type="submit" value="Je m'inscris" />
+		</form>
+	</div>

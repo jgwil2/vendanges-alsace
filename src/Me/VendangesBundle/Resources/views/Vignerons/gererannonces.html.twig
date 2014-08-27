@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Passer une annonce{% endblock %}
+
+{% block login %}
+	{{ include('MeVendangesBundle:Vignerons:connexion.html.twig') }}
+{% endblock %}
+
+{% block sousheader %}
+	{{ include('MeVendangesBundle:Vignerons:sousheader.html.twig') }}
+{% endblock %}
+
+{% block motdepasse %}{% endblock %}
+
+{% block body %}
+<div id="page">
+	<div class="contenugauche">
+		<h2>Annonces actuelles</h2>
+		<table>
+		{% if annonces is empty %}
+		<p>Vous n'avez pas encore passé d'annonces.</p>
+		<p><a href="{{ path('vendanges_vignerons_nouvelle_annonce') }}">Créez votre première annonce</a></p>
+		{% else %}
+		{% for annonce in annonces %}
+		<tr>
+		<td><h4>{{ annonce.titre }}</h4>
+		{{ annonce.texte }}</td>
+		<td>{{ annonce.active ? 'ACTIVE' : 'INACTIVE' }}</td>	
+		<td><a href="{{ path('vendanges_vignerons_modifier_annonce', {'id': annonce.id}) }}">Modifier cette annonce</a></td>
+		</tr>
+		{% endfor %}
+		{% endif %}
+		</table>
+	</div>
+</div>
+{% endblock %}

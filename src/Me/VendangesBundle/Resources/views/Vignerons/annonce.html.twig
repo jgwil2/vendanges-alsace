@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Passer une annonce{% endblock %}
+
+{% block login %}
+	{{ include('MeVendangesBundle:Vignerons:connexion.html.twig') }}
+{% endblock %}
+
+{% block sousheader %}
+	{{ include('MeVendangesBundle:Vignerons:sousheader.html.twig') }}
+{% endblock %}
+
+{% block motdepasse %}{% endblock %}
+
+{% block body %}
+<div id="page">
+	<div class="contenugauche">
+		<h2>Passer une nouvelle annonce</h2>
+		<form action="{{ path('vendanges_vignerons_nouvelle_annonce') }}" method="post">
+			{{ form_errors(form) }}
+			{{ form_widget(form.titre, { 'attr': {'placeholder': 'Titre'}}) }}<br />
+
+			{{ form_label(form.dateDebut, 'Date de début') }}
+			{{ form_widget(form.dateDebut) }}
+
+			{{ form_label(form.dateFin, 'Date de fin') }}
+			{{ form_widget(form.dateFin) }}
+
+			{{ form_row(form.logement) }}
+			{{ form_row(form.repas) }}
+			{{ form_widget(form.remuneration, { 'attr': {'placeholder': 'Rémuneration'}}) }}<br />
+			{{ form_widget(form.texte, { 'attr': {'placeholder': 'Description'}}) }}<br />
+			{{ form_widget(form.places, { 'attr': {'placeholder': 'Nombre de places'}}) }}<br />
+
+			<input type="submit" value="Passer l'annonce">
+		</form>
+	</div>
+
+</div>
+{% endblock %}

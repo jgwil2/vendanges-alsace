@@ -1,0 +1,20 @@
+<!-- début sousheader -->
+<div id="sousheader">Espace vendangeur</div>
+<!-- // sousheader -->
+
+<div id="menu">
+	{% if app.user and app.user.roles[0] == 'ROLE_VENDANGEUR' %}
+	<a href="{{ path('vendanges_vendangeurs_mon_profil') }}">
+		<div class="boutonnav">GERER MON PROFIL</div>
+	</a>
+	{% else %}
+	<a href="#inscription" class="inscription cboxElement">
+		<div class="boutonnav">CREER MON PROFIL DE VENDANGEUR</div>
+	</a>
+	{% endif %}
+
+	<a href="{{ path('vendanges_vendangeurs_consulter_annonces') }}">
+		<div class="boutonnav">CONSULTEZ LES ANNONCES<br />DES VIGNERONS</div>
+	</a>
+
+</div>

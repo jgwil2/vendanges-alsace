@@ -1,0 +1,75 @@
+Me\VendangesBundle\Entity\Vigneron:
+    properties:
+        photo:
+            - File:
+                maxSize: 6000000
+
+        nom:
+            - NotBlank: ~
+
+        adresse:
+            - NotBlank: ~
+
+        code:
+            - NotBlank: ~
+
+        ville:
+            - NotBlank: ~
+
+        email:
+            - Email:
+                message: "L'adresse mail \"{{ value }}\" n'est pas valide."
+
+        site:
+            - Url:
+                message: "L'URL \"{{ value }}\" n'est pas valide."
+
+        presentation:
+            - NotBlank: ~
+
+        password: 
+            - NotBlank: ~
+
+Me\VendangesBundle\Entity\Vendangeur:
+    properties:
+        nom:
+            - NotBlank: ~
+
+        prenom:
+            - NotBlank: ~
+
+        adresse:
+            - NotBlank: ~
+
+        code:
+            - NotBlank: ~
+
+        ville:
+            - NotBlank: ~
+
+        pays:
+            - NotBlank: ~
+
+        tel:
+            - NotBlank: ~
+
+        email:
+            - Email:
+                message: "L'adresse mail \"{{ value }}\" n'est pas valide."
+
+Me\VendangesBundle\Entity\Annonce:
+    properties:
+        titre:
+            - NotBlank: ~
+
+        dateDebut:
+            - Date: ~
+
+        dateFin:
+            - Date: ~
+
+        remuneration:
+            - NotBlank: ~
+
+        places:
+            - NotBlank: ~

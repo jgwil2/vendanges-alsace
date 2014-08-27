@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block title%}Répondre à l'annonce{% endblock %}
+
+{% block login %}
+	{{ include('MeVendangesBundle:Vendangeurs:connexion.html.twig') }}
+{% endblock %}
+
+{% block sousheader %}
+	{{ include('MeVendangesBundle:Vendangeurs:sousheader.html.twig') }}
+{% endblock %}
+
+{% block motdepasse %}{% endblock %}
+
+{% block body %}
+<div id="page">
+	<div class="contenugauche">
+		<h2>Répondre à l'annonce {{ annonce.titre }} de {{ annonce.vigneron.nom }}</h2>
+		<form action="{{ path('vendanges_vendangeurs_repondre_annonce', {'id': annonce.id}) }}" method="POST" {{ form_enctype(form) }} >
+			{{ form_errors(form) }}
+
+			{{ form_row(form.sujet) }}
+
+			{{ form_row(form.message) }}
+
+			{{ form_rest(form) }}
+			<input type="submit" value="Envoyer" />
+		</form>
+	</div>
+</div>
+{% endblock %}

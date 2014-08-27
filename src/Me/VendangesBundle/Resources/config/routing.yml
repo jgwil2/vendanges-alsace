@@ -1,0 +1,78 @@
+vendanges_homepage:
+    path:     /
+    defaults: { _controller: MeVendangesBundle:Default:index }
+
+##### vignerons area routes #####
+vendanges_vignerons:
+    path:    /vignerons
+    defaults: { _controller: MeVendangesBundle:Vignerons:index }
+
+vendanges_vignerons_inscription:
+    path:    /vignerons/inscription
+    defaults: { _controller: MeVendangesBundle:Vignerons:inscription }
+
+vendanges_vignerons_nouvelle_annonce:
+    path:    /vignerons/nouvelle-annonce
+    defaults: { _controller: MeVendangesBundle:Vignerons:nouvelleAnnonce }
+
+vendanges_vignerons_mon_profil:
+    path:    /vignerons/mon-profil
+    defaults: { _controller: MeVendangesBundle:Vignerons:monProfil }
+
+vendanges_vignerons_modifier_annonce:
+    path:    /vignerons/modifier-annonce/{id}
+    defaults: { _controller: MeVendangesBundle:Vignerons:modifierAnnonce }
+
+vendanges_vignerons_consulter_profils:
+    path:    /vignerons/consulter-profils
+    defaults: { _controller: MeVendangesBundle:Vignerons:consulter }
+
+vendanges_vignerons_repondre_profil:
+    path:    /vignerons/reponse/{id}
+    defaults: { _controller: MeVendangesBundle:Vignerons:repondre }
+
+vendanges_vignerons_gerer_annonces:
+    path:    /vignerons/gerer-annonces
+    defaults: { _controller: MeVendangesBundle:Vignerons:mesAnnonces }
+
+##### vendangeurs area routes #####
+vendanges_vendangeurs:
+    path:    /vendangeurs
+    defaults: { _controller: MeVendangesBundle:Vendangeurs:index }
+
+vendanges_vendangeurs_inscription:
+    path:    /vendangeurs/inscription
+    defaults: { _controller: MeVendangesBundle:Vendangeurs:inscription }
+
+vendanges_vendangeurs_consulter_annonces:
+    path:    /vendangeurs/annonces
+    defaults: { _controller: MeVendangesBundle:Vendangeurs:consulter }
+
+vendanges_vendangeurs_repondre_annonce:
+    path:    /vendangeurs/reponse/{id}
+    defaults: { _controller: MeVendangesBundle:Vendangeurs:repondre }
+
+vendanges_vendangeurs_mon_profil:
+    path:    /vendangeurs/mon-profil
+    defaults: { _controller: MeVendangesBundle:Vendangeurs:monProfil }
+
+##### login/logout routes #####
+vendangeurs_connexion:
+    path:    /vendangeurs/connexion
+    defaults: { _controller: MeVendangesBundle:Security:login }
+
+vignerons_connexion:
+    path:    /vignerons/connexion
+    defaults: { _controller: MeVendangesBundle:Security:login }
+
+vendangeurs_verification:
+    path:    /vendangeurs/verification
+
+vignerons_verification:
+    path:    /vignerons/verification
+
+vendangeurs_deconnexion:
+    path:    /vendangeurs/deconnexion
+
+vignerons_deconnexion:
+    path:    /vignerons/deconnexion

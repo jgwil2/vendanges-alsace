@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Inscription Vendangeurs{% endblock %}
+
+{% block sousheader %}
+	{{ include('MeVendangesBundle:Vendangeurs:sousheader.html.twig') }}
+{% endblock %}
+
+{% block body %}
+	<div id="inscription" rel="inscription">
+		<div class="fermeture"><a  href="#">X</a></div>
+		<h2>INSCRIPTION VENDANGEUR</h2>
+			<form action="{{ path('vendanges_vendangeurs_inscription') }}" method="POST" id="inscription_form">
+			{{ form_errors(form) }}
+
+			{{ form_widget(form.prenom, { 'attr': {'placeholder': 'Prénom', 'class': 'petitchamp'}}) }}
+			{{ form_widget(form.nom, { 'attr': {'placeholder': 'Nom', 'class': 'petitchamp'}}) }}
+			{{ form_widget(form.adresse, { 'attr': {'placeholder': 'Adresse', 'class': 'grandchamp'}}) }}
+			{{ form_widget(form.code, { 'attr': {'placeholder': 'Code postal', 'class': 'petitchamp'}}) }}
+			{{ form_widget(form.ville, { 'attr': {'placeholder': 'Ville', 'class': 'petitchamp'}}) }}
+			{{ form_widget(form.tel, { 'attr': {'placeholder': 'Tél', 'class': 'petitchamp'}}) }}
+			{{ form_widget(form.pays, { 'attr': {'placeholder': 'Pays', 'class': 'petitchamp'}}) }}
+			{{ form_widget(form.email, { 'attr': {'placeholder': 'Adresse email', 'class': 'grandchamp'}}) }}
+			{{ form_widget(form.password, { 'attr': {'placeholder': 'Mot de passe', 'class': 'grandchamp'}}) }}
+
+			{{ form_rest(form) }}
+			<input type="submit" value="Je m'inscris" />
+		</form>
+	</div>
+{% endblock %}

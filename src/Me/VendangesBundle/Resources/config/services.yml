@@ -1,0 +1,7 @@
+parameters:
+#    me_vendanges.example.class: Me\VendangesBundle\Example
+
+services:
+#    me_vendanges.example:
+#        class: %me_vendanges.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

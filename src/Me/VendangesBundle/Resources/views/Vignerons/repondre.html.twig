@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block title%}Répondre au Vendangeur{% endblock %}
+
+{% block login %}
+	{{ include('MeVendangesBundle:Vignerons:connexion.html.twig') }}
+{% endblock %}
+
+{% block sousheader %}
+	{{ include('MeVendangesBundle:Vignerons:sousheader.html.twig') }}
+{% endblock %}
+
+{% block motdepasse %}{% endblock %}
+
+{% block body %}
+<div id="page">
+	<div class="contenugauche">
+		<h2>Répondre à {{ vendangeur.nom }} {{ vendangeur.prenom }}</h2>
+		<form action="{{ path('vendanges_vignerons_repondre_profil', {'id': vendangeur.id}) }}" method="POST" {{ form_enctype(form) }} >
+			{{ form_errors(form) }}
+
+			{{ form_row(form.sujet) }}
+
+			{{ form_row(form.message) }}
+
+			{{ form_rest(form) }}
+			<input type="submit" value="Envoyer" />
+		</form>
+	</div>
+</div>
+{% endblock %}

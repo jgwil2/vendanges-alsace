@@ -1,0 +1,4 @@
+me_vendanges:
+    resource: "@MeVendangesBundle/Resources/config/routing.yml"
+    prefix:   /
+

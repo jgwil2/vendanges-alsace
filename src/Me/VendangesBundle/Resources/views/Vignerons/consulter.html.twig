@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Profils des vendangeurs{% endblock %}
+
+{% block login %}
+	{{ include('MeVendangesBundle:Vignerons:connexion.html.twig') }}
+{% endblock %}
+
+{% block sousheader %}
+	{{ include('MeVendangesBundle:Vignerons:sousheader.html.twig') }}
+{% endblock %}
+
+{% block motdepasse %}{% endblock %}
+
+{% block body %}
+
+<div style='display:none'>
+	<div id="reponse" rel="reponse">
+		<div class="fermeture"><a  href="#">X</a></div>
+		<h2 id="nom">CONTACTER</h2>
+		<div class="formulaire">
+			<form id="form" action="" method="post">
+			{{ form_row(form.sujet) }}
+			{{ form_row(form.message) }}
+			<input type="submit" text="Envoyer">
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="page">
+	{% for flash in app.session.flashbag.get('notice') %}
+		<div class="alert">{{ flash }}</div>
+	{% endfor %}
+ <!-- début page -->
+<div id="page">
+	<h1> Les profils des vendangeurs</h1>
+
+	<!-- début annonces-->
+	<div id="annoncesvendangeurs">
+		{% for vendangeur in vendangeurs %}
+			{% if vendangeur.disponible %}
+			<div class="blocannonce">
+				<a href="#reponse" class="reponse" data-nom="{{ vendangeur.nom }} {{ vendangeur.prenom }}" data-id="{{ vendangeur.id }}"><div class="blocannonceover"></div></a>
+				<span class="titreannonce">{{ vendangeur.nom }} {{ vendangeur.prenom }}</span>
+				<span class="texteannonce">
+				<strong>Présentation : </strong>{{ vendangeur.motivation }}<br />
+				<strong>Je peux conduire un tracteur:</strong> {{ vendangeur.tracteur ? 'OUI' : 'NON' }}<br />
+				<strong>Logement : </strong>{{ vendangeur.logement ? 'OUI' : 'NON' }}<br />
+				<strong>Véhicule : </strong>{{ vendangeur.vehicule ? 'OUI' : 'NON' }}<br />
+				<strong>Date de disponibilités : </strong> {{ vendangeur.dateDebut | date('d/m/Y') }} au {{ vendangeur.dateFin | date('d/m/Y') }}</span>
+			</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+	<!--//annonces-->   
+</div>
+<!--/page-->
+{% endblock %}

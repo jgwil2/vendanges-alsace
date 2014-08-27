@@ -1,0 +1,562 @@
+body{
+	
+	
+font-family: 'Roboto', sans-serif;
+		
+}
+
+
+.right{float: right;}
+.left{float: left;}
+
+
+
+#header { position: relative; width: 990px; height: 110px; margin: auto; display: block;  text-align: left;}
+
+
+
+
+#header .titre{font-size: 60px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; color: #FFFFFF; text-shadow: 0px 0px 9px #111; text-transform: uppercase;}
+
+
+
+#header .connexionvendangeur{ padding-left: 10px; padding-right: 10px; position: absolute; right: 0px; top:0px; background: rgba(53, 99, 9, 0.7); width:315px; height: 90px; display: block; font-size: 12px; font-family: 'Roboto Condensed', sans-serif; color: #ffffff;}
+
+
+#header h2{font-size: 18px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; color: #FFFFFF;}
+
+#header input:not([type=submit]){
+  background: #ffffff;
+  border: none;
+  font: normal 13px;
+  outline: none;
+  padding: 5px;
+  width: 120px;
+  height: 12px;
+  margin: 3px;
+ 
+}
+
+#header a{color:#ffffff; text-decoration: underline; }
+
+#header a:hover{color:#ffffff; font-style: italic;}
+
+
+
+
+#header button{width:34px; height: 22px; background-color: #dbc330; color: #ffffff; border: none;}
+
+#header button:hover{background-color: #356309;}
+
+#sousheader{position: relative; width: 900px; padding-right: 90px; margin: auto; display: block;  text-align: right; font-size: 55px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; color: #FFFFFF; }
+
+
+
+
+#motdepasseoublie{
+  display: block; 
+  width: 439px;
+  height: 439px;
+  background-color: #ffffff;
+
+  z-index: 10000;
+  padding: 10px;
+  //display: none;
+  }
+
+
+#motdepasseoublie .fermeture{position: absolute; right: 15px; top: 10px; color: #48720c; font-size: 24px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700;}
+#motdepasseoublie .fermeture a{color: #48720c; text-decoration: none;}
+#motdepasseoublie .fermeture a:hover{color: #48720c; text-decoration: none;}
+#motdepasseoublie h2{margin-top: 30px; color: #48720c; font-size: 30px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; margin-bottom: 20px;}
+
+#motdepasseoublie .grandchamp{ background: #ffffff;
+  border: 1px solid #abadba;
+  font: normal 16px;
+  outline: none;
+  padding: 5px;
+  width: 382px;
+  height: 25px;
+  margin: 3px;
+  color: #abadba;
+}
+#motdepasseoublie .grandchamp:focus{color: #333333;}
+
+#motdepasseoublie .petitchamp{ background: #ffffff;
+   border: 1px solid #abadba;
+  font: normal 16px;
+  outline: none;
+  padding: 5px;
+  width: 180px;
+  height: 25px;
+  margin: 3px;
+  color: #abadba;
+}
+#motdepasseoublie .petitchamp:focus{color: #333333;}
+
+#motdepasseoublie button{
+    width: 400px;
+    margin-top: 10px;
+    border: none;
+    background-color: #48720c;
+    -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+color: #ffffff;
+font-size: 24px;
+font-family: 'Roboto Condensed', sans-serif;
+  }
+
+#motdepasseoublie button:hover{background-color: #dbc330; cursor: pointer;}
+
+
+
+
+
+#inscription{
+  
+  display: block; 
+  width: 439px;
+  height: 439px;
+  background-color: #ffffff;
+  
+  z-index: 10000;
+  padding: 10px;
+  //display:none;
+  }
+
+#inscription .fermeture{position: absolute; right: 15px; top: 10px; color: #48720c; font-size: 24px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700;}
+#inscription .fermeture a{color: #48720c; text-decoration: none;}
+#inscription .fermeture a:hover{color: #48720c; text-decoration: none;}
+#inscription h2{margin-top: 30px; color: #48720c; font-size: 30px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; margin-bottom: 20px;}
+
+#inscription .grandchamp{ background: #ffffff;
+  border: 1px solid #abadba;
+  font: normal 16px;
+  outline: none;
+  padding: 5px;
+  width: 382px;
+  height: 25px;
+  margin: 3px;
+  color: #abadba;
+}
+#inscription .grandchamp:focus{color: #333333;}
+
+#inscription .petitchamp{ background: #ffffff;
+   border: 1px solid #abadba;
+  font: normal 16px;
+  outline: none;
+  padding: 5px;
+  width: 180px;
+  height: 25px;
+  margin: 3px;
+  color: #abadba;
+}
+#inscription .petitchamp:focus{color: #333333;}
+
+#inscription button{
+    width: 400px;
+    margin-top: 10px;
+    border: none;
+    background-color: #48720c;
+    -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+color: #ffffff;
+font-size: 24px;
+font-family: 'Roboto Condensed', sans-serif;
+  }
+
+#inscription button:hover{background-color: #dbc330; cursor: pointer;}
+#inscription textarea{background: #ffffff;
+  border: 1px solid #abadba;
+  font: normal 16px;
+  
+  outline: none;
+  padding: 5px;
+  width: 382px;
+  height: 150px;
+   margin: 3px;
+  color: #abadba;
+ 
+}
+
+#inscription textarea:focus{color: #333333;}
+
+#inscription label{color: #abadba;}
+
+
+#reponse{
+  
+  display: block; 
+  width: 439px;
+  height: 600px;
+  background-color: #ffffff;
+  
+  z-index: 10000;
+  padding: 10px;
+  //display:none;
+  }
+
+#reponse .fermeture{position: absolute; right: 15px; top: 10px; color: #48720c; font-size: 24px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700;}
+#reponse .fermeture a{color: #48720c; text-decoration: none;}
+#reponse .fermeture a:hover{color: #48720c; text-decoration: none;}
+#reponse h2{margin-top: 30px; color: #48720c; font-size: 30px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; margin-bottom: 20px;}
+
+#reponse .grandchamp{ background: #ffffff;
+  border: 1px solid #abadba;
+  font: normal 16px;
+  outline: none;
+  padding: 5px;
+  width: 382px;
+  height: 25px;
+  margin: 3px;
+  color: #abadba;
+}
+
+#reponse textarea{background: #ffffff;
+  border: 1px solid #abadba;
+  font: normal 16px;
+  
+  outline: none;
+  padding: 5px;
+  width: 382px;
+  height: 150px;
+   margin: 3px;
+  color: #333333;
+ 
+}
+
+
+#reponse .grandchamp:focus{color: #333333;}
+
+#reponse .petitchamp{ background: #ffffff;
+   border: 1px solid #abadba;
+  font: normal 16px;
+  outline: none;
+  padding: 5px;
+  width: 180px;
+  height: 25px;
+  margin: 3px;
+  color: #abadba;
+}
+#reponse .petitchamp:focus{color: #333333;}
+
+#reponse button{
+    width: 400px;
+    margin-top: 10px;
+    border: none;
+    background-color: #48720c;
+    -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+color: #ffffff;
+font-size: 24px;
+font-family: 'Roboto Condensed', sans-serif;
+  }
+
+#reponse button:hover{background-color: #dbc330; cursor: pointer;}
+
+#menu {position: relative; width: 990px; height: 80px; margin: auto; display: block; margin-top: 20px; margin-bottom: 20px; }
+
+
+
+
+
+#menu .boutonnav{width:245px; height: 55px; padding-top: 5px; background-color: #356309; text-transform: uppercase; font-size: 18px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; text-align: center; float: left;  margin-left: 150px; }
+
+#menu .boutonnav:hover{background-color: #dbc330;}
+#menu a{color:#ffffff; text-decoration: none; }
+
+#menu a:hover{color:#ffffff; text-decoration: none;}
+
+#menuvignerons {position: relative; width: 990px; height: 80px; margin: auto; display: block; margin-top: 20px; margin-bottom: 20px; }
+
+
+
+
+
+#menuvignerons .boutonnav{width:245px; height: 55px; padding-top: 5px; background-color: #356309; text-transform: uppercase; font-size: 18px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; text-align: center; float:left;  margin-left: 80px; }
+
+#menuvignerons .boutonnav:hover{background-color: #dbc330;}
+#menuvignerons a{color:#ffffff; text-decoration: none; }
+
+#menuvignerons a:hover{color:#ffffff; text-decoration: none;}
+
+
+#homepage{margin:auto; width:990px; display: block; height:auto;  overflow:hidden;  position:relative; margin-top: 180px; overflow: hidden;  }
+
+
+
+
+#homepage .blocvignerons{padding: 20px; width: 365px; height: 365px; float: left; margin-right: 50px; background-color: white; opacity: 0.8;}
+
+#homepage .blocvendangeurs{padding: 20px; width: 365px; height: 365px; background-color: white; opacity: 0.8; float: left; margin-left: 50px;}
+
+#homepage .blocvignerons:hover{opacity:0.6;}
+#homepage .blocvendangeurs:hover{opacity:0.6;}    
+                      
+         
+        
+#homepage h1{color: #426905;  font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 50px; margin-top: 100px;}
+      
+#homepage .soush1{font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 24px; color: #426905; }   
+         
+#homepage .texte{color: #333333; font-size: 14px; margin-right: 40px; text-align: left;}
+         
+
+
+
+#page{margin:auto; width:990px; display: block; height:auto;  overflow:hidden;  position:relative; margin-top: 20px; overflow: hidden;  }
+
+#page .contenugauche{width: 600px; padding: 10px; float: left; background: rgba(255, 255, 255, 0.7); font-size: 14px; color: #333333;  box-shadow: 0 0 2px #b5b5b5;}
+
+#page .contenudroite{ width: 316px; padding: 10px; float: left; background: rgba(255, 255, 255, 0.7); margin-left: 30px; box-shadow: 0 0 2px #b5b5b5; font-size: 14px; color: #333333; }
+
+#page h2{color: #48720c; font-size: 30px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; margin-bottom: 20px;}
+
+
+
+
+#page h1{color: #ffffff; font-size: 40px; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; margin-bottom: 20px;}
+
+
+
+#page #filtres{
+  font-size:24px;
+  color:#333333;
+  margin-bottom: 40px;
+  overflow: hidden;
+  }
+
+.styled-select select {
+   background: transparent;
+   width: 198px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   }
+#filtres .styled-select {
+  margin-right: 15px;
+  margin-left: 30px;
+  float: left;
+  width: 170px;
+  height: 34px;
+   overflow: hidden;
+   background: url(../images/fleche_select.png) no-repeat right #ddd;
+   border: none;
+   }
+   
+ 
+
+#page #annonces{
+display: block;
+position: relative;
+overflow: hidden;
+min-height: 378px;
+  margin-top: 20px;
+  }
+
+.blocannonceovercomplet{display: none; position: absolute; top: 0px; left: 0px; background-color: #A11012; width: 100%; height: 100%; z-index: 10; cursor: pointer; color: white; text-align: center; vertical-align: middle;}
+
+a:hover .blocannonceovercomplet{text-decoration: none; font-style: normal}
+
+#page #annonces .blocannonce{
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  width: 261px;
+  padding: 10px;
+  float: left; margin-right: 45px; margin-bottom: 30px;
+  }
+#page #annonces .blocannonceover{display: none; position: absolute; top: 0px; left: 0px; background:url(../images/rollover-blocannonce.jpg) repeat; width: 100%; height: 100%; z-index: 10; cursor: pointer;}
+
+#page #annonces .titreannonce{font-size: 24px; color: #48720c; font-family: 'Roboto Condensed', sans-serif; font-weight: 400; display: block; margin-bottom: 10px;}
+
+#page #annonces .texteannonce{font-family: 'Roboto Condensed', sans-serif; font-weight: 400;  line-height:18px; display: block; font-size: 14px; color: #48720c;}
+
+#page a{color: #48720c;}
+
+#page a:hover{font-style: italic}
+
+small{color: #666666; text-transform: lowercase; font-size: 11px;}
+
+
+#contact{margin:auto; width:100%; display: block; height:auto;  overflow:hidden;  position:absolute; top: 140px; bottom: 80px; overflow: auto;   }
+
+
+
+#contact .contact{margin:auto;  width:990px; display: block; height:auto;  overflow:hidden;   overflow: hidden;  position: relative;  }
+
+
+#contact .blocadresse{padding: 20px; width: 700px; display:block; background-color: white; opacity: 0.8; margin: auto; margin-bottom: 30px; overflow: hidden;  } 
+
+
+#contact .blocformulaire{padding: 20px; width: 700px; display:block; background-color: white; opacity: 0.8;  margin: auto;  } 
+
+
+
+#contact  h1{color: #775656; font-size: 24px; font-weight: bold; font-style: italic;}
+      
+#contact  .soush1{height: 15px; width: 100%; margin-bottom: 10px; background:url(../images/fleur.png) no-repeat right}   
+         
+#contact  .texte{color: #333333; font-size: 14px; margin-right: 40px;}
+
+
+#contact label{
+  float: left;
+  font-size: 13px;
+  width: 140px;
+  padding-top: 5px;
+}
+
+
+
+#contact fieldset fieldset label{
+  background:none no-repeat left 50%;
+  line-height: 20px;
+  padding: 0 0 0 10px;
+  width: auto;
+}
+
+
+
+#contact .code{
+width: 30px;	
+}
+
+
+
+#contact fieldset fieldset label:hover {
+  cursor: pointer;
+}
+
+#contact legend{text-align: left;  font-size: 18px; font-weight: 400; color: #087eb3;  display: block; margin-bottom: 20px;}
+
+
+#contact .inline{
+float: none;	
+}
+
+
+
+#contact .itembox{padding-left: 20px;}
+
+#contact input:not([type="checkbox"]),
+#contact textarea {
+  background: #ffffff;
+  border: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  font: italic 13px;
+  outline: none;
+  padding: 5px;
+  width: 180px;
+ 
+  margin: 3px;
+  border: 1px solid #ccc;
+}
+
+#contact textarea{ height: 60px;}
+#contact input:not([type=submit]):focus,
+#contact textarea:focus {
+  background: #c2b6a9;
+}
+
+
+#contact fieldset{margin-bottom: 20px;}
+#contact .txtadresse{float: left;  width: 340px;}
+#contact .plan{float: right; margin-left: 20px; }
+#contact td {padding: 10px;}
+#contact #focontact{ display: block; width: 400px; margin: auto; margin-top: 10px;}
+#contact .contactok{color: #448211;}
+#contact .red{color: #9d1634;}
+#contact .oblig{font-size: 11px;}
+
+#contact button{
+  background: #775656;
+  border: none;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+  color: #ffffff;
+  display: block;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  margin: auto;
+  padding: 7px 25px;
+  text-shadow: 0 1px 1px #000000;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+
+
+#contact button:hover {
+  background: #cba50c;
+  cursor: pointer;
+}
+
+
+#contact input.code{
+width: 30px;	
+}
+
+#connectezvous{
+  display:none;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1000;
+  top: 70px;
+  right: 300px;
+  padding: 10px;
+}
+
+#connectezvous h2{color: #48720c;}
+
+#connectezvous a{color: black; text-decoration: none;}
+
+#connectezvous a:hover{color: black; text-decoration: none; font-style: normal;}
+
+#connectezvous .fermer{
+  color: black;
+  float: right;
+}
+
+.alert {color: #48720c; font-size: 24px; padding: 20px; margin-bottom: 10px; background: rgba(255, 255, 255, 0.7);}
+
+#footer{ width:100%; background-color: #356309;  height: 50px; padding-top: 9px; margin-top: 40px; }
+
+
+#footer .footer{width: 990px; color: #ffffff; font-size: 12px; display: block; text-align: center; margin-right: auto; margin-left: auto; font-weight: bold;}
+
+#page #annoncesvendangeurs{
+display: block;
+position: relative;
+overflow: hidden;
+  margin-top: 20px;
+  }
+
+#page #annoncesvendangeurs .blocannonce{
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  width: 970px;
+  height: 166px;
+  padding: 10px;
+  float: left; margin-right: 45px; margin-bottom: 30px;
+  }
+#page #annoncesvendangeurs .blocannonceover{display: none; position: absolute; top: 0px; left: 0px; background:url(../images/rollover-profilvendangeur.jpg) repeat; width: 990px;   height: 186px; z-index: 10; cursor: pointer;}
+
+#page #annoncesvendangeurs .titreannonce{font-size: 24px; color: #48720c; font-family: 'Roboto Condensed', sans-serif; font-weight: 400; display: block; margin-bottom: 10px;}
+
+#page #annoncesvendangeurs .texteannonce{font-family: 'Roboto Condensed', sans-serif; font-weight: 400;  line-height:18px; display: block; font-size: 14px; color: #48720c;}
+
+#sousfooter{  background-color: #503838; position: absolute; bottom: 0;  width: 100%; height: 18px; padding-top: 2px; color: #775656; font-size: 11px; text-align:right }	
+#sousfooter a{ color: #775656;}
+
+th, td{ padding: 10px;border: 1px solid #48720c;}

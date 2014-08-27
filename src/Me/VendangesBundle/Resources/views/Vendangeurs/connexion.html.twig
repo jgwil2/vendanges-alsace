@@ -1,0 +1,22 @@
+{% if app.user %}
+    <div class="connexionvendangeur">
+        <h2>BIENVENUE {{ app.user.username | upper }}</h2>
+        <a href="{{ path('vendangeurs_deconnexion') }}">Me déconnecter</a><br />
+        <a href="{{ path('vendanges_vendangeurs_mon_profil') }}">Modifier mon profil</a><br />
+        <a href="{{ path('vendanges_vendangeurs') }}">Espace vendangeur</a>
+    </div>
+    
+{% else %}
+    <div class="connexionvendangeur">
+        <h2>DEJA MEMBRE ?</h2>
+        <form action="{{ path('vendangeurs_verification') }}" method="post" >
+        <input type="text" placeholder="identifiant" id="username" name="_username" />
+        <input type="password" placeholder="mot de passe" id="password" name="_password"/>
+        <input type="submit" value="OK">
+        </form>
+
+        <a href="#motdepasseoublie" class="motdepasseoublie">Mot de passe oublié</a><br />
+        Pas encore inscrit ? <a href="#inscription" class="inscription cboxElement">Inscrivez vous</a>
+    </div>
+
+{% endif %}

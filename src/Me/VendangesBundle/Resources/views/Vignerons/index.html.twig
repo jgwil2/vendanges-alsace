@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Espace Vignerons{% endblock %}
+
+{% block inscription %}
+	<div style='display:none'>
+	{{ include('MeVendangesBundle:Vignerons:inscription.html.twig') }}
+	</div>
+{% endblock %}
+
+{% block login %}
+	{{ include('MeVendangesBundle:Vignerons:connexion.html.twig')}}
+{% endblock %}
+
+{% block sousheader %}
+	{{ include('MeVendangesBundle:Vignerons:sousheader.html.twig') }}
+{% endblock %}
+
+{% block body %}
+
+<div id="page">
+	{% for flash in app.session.flashbag.get('notice') %}
+		<div class="alert">{{ flash }}</div>
+	{% endfor %}
+	<div class="contenugauche">
+		<h2>VIGNERONS</h2> 
+
+		Vous souhaitez recruter des vendangeurs saisonniers ?<br /><br />
+		Vignerons-Alsace est un réseau indépendant et un sevice gratuit qui facilite la mise en relation entre vendangeurs et vignerons. 
+		<br /><br />
+		<a href="#inscription" class="inscription">Inscrivez vous</a> et Publier une annonce !
+
+	</div>
+
+	<div class="contenudroite">
+		<h2>AGENDA DES RECOLTES</h2>
+
+		MI-SEPTEMBRE : Vendanges pour le Crémant<br />
+		FIN SEPTEMBRE / DEBUT OCTOBRE : Autres 
+		cépages<br />
+		FIN OCTOBRE : La fin des Vendanges
+		<br /><br />
+		Les dates officielles varient selon la météo 
+		et sont communiquées sur la fiche officielle
+		de chaque vigneron.
+	</div>
+</div>
+
+
+{% endblock %}
