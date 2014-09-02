@@ -1,0 +1,58 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Domaines{% endblock %}
+
+{% block login %}
+	{{ include('MeVendangesBundle:Vendangeurs:connexion.html.twig') }}
+{% endblock %}
+
+{% block sousheader %}
+	{{ include('MeVendangesBundle:Vendangeurs:sousheader.html.twig') }}
+{% endblock %}
+
+{% block motdepasse %}{% endblock %}
+
+{% block body %}
+
+<div style='display:none'>
+	<div id="reponse" rel="reponse">
+		<div class="fermeture"><a  href="#">X</a></div>
+		<h2 id="nom">CONTACTER</h2>
+		<div class="formulaire">
+			<form id="form" action="" method="post">
+
+			<input type="submit" text="Envoyer">
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="page">
+	{% for flash in app.session.flashbag.get('notice') %}
+		<div class="alert">{{ flash }}</div>
+	{% endfor %}
+ <!-- début page -->
+<div id="page">
+	<h1> Les domaines des vignerons</h1>
+
+	<!-- début annonces-->
+	<div id="annoncesvignerons">
+		{% for vigneron in vignerons %}
+
+			<div class="blocannonce">
+				<a href="#reponse" class="reponse" data-nom="{{ vigneron.nom }}" data-id="{{ vigneron.id }}"><div class="blocannonceover"></div></a>
+				<span class="titreannonce">{{ vigneron.nom }}</span><br />
+				<span class="texteannonce">
+					<p>{{ vigneron.code }}</p>
+					<p>{{ vigneron.ville }}</p>
+					<p>{{ vigneron.site }}</p>
+					<a href="{{ path('vendanges_vendangeurs_page_domaine', {'id': vigneron.id }) }}">&#65515; Voir la fiche du vigneron</a>
+				</span>
+			</div>
+
+		{% endfor %}
+	</div>
+	<!--//annonces-->   
+</div>
+<!--/page-->
+{% endblock %}

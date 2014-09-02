@@ -18,6 +18,7 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class VendangeursController extends Controller
 {
+    // Homepage + forgotten password action
     public function indexAction(Request $request)
     {
         // get current user object
@@ -78,6 +79,7 @@ class VendangeursController extends Controller
         ));
     }
 
+    // Sign up action
     public function inscriptionAction(Request $request)
     {
     	$vendangeur = new Vendangeur();
@@ -93,7 +95,7 @@ class VendangeursController extends Controller
             $repository = $this->getDoctrine()->getRepository('MeVendangesBundle:Vendangeur');
 
             if($repository->findOneByEmail($vendangeur->getEmail())){
-                // welcome message
+                // if email is already in database, set message
                 $this->get('session')->getFlashBag()->add(
                     'notice',
                     'Vous êtes déjà inscrit !'
@@ -149,6 +151,7 @@ class VendangeursController extends Controller
         ));
     }
 
+    // Browse posts action
     public function consulterAction()
     {
         // fetch all annonces from database
@@ -178,6 +181,33 @@ class VendangeursController extends Controller
         ));
     }
 
+    // Browse vineyards action
+    public function domainesAction()
+    {
+        $repository = $this->getDoctrine()->getRepository('MeVendangesBundle:Vigneron');
+        $vignerons = $repository->findAll();
+
+        return $this->render('MeVendangesBundle:Vendangeurs:domaines.html.twig', array(
+            'vignerons' => $vignerons
+        ));
+    }
+
+    // Individual vineyard page
+    public function pageDomaineAction($id, Request $request)
+    {
+        $annonceRepository = $this->getDoctrine()->getRepository('MeVendangesBundle:Annonce');
+        $annonces = $annonceRepository->findByVigneron($id);
+
+        $vigneronRepository = $this->getDoctrine()->getRepository('MeVendangesBundle:Vigneron');
+        $vigneron = $vigneronRepository->findOneById($id);
+
+        return $this->render('MeVendangesBundle:Vendangeurs:pagedomaine.html.twig', array(
+            'vigneron' => $vigneron,
+            'annonces' =>$annonces
+        ));
+    }
+
+    // Edit profile action
     public function monProfilAction(Request $request)
     {
         // get current user object
@@ -212,6 +242,7 @@ class VendangeursController extends Controller
         ));
     }
 
+    // Reply to post action
     public function repondreAction($id, Request $request)
     {
         // get current user object

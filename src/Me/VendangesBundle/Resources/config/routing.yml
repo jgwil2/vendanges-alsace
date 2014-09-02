@@ -48,6 +48,14 @@ vendanges_vendangeurs_consulter_annonces:
     path:    /vendangeurs/annonces
     defaults: { _controller: MeVendangesBundle:Vendangeurs:consulter }
 
+vendanges_vendangeurs_consulter_domaines:
+    path:    /vendangeurs/domaines
+    defaults: { _controller: MeVendangesBundle:Vendangeurs:domaines }
+
+vendanges_vendangeurs_page_domaine:
+    path:    /vendangeurs/domaines/{id}
+    defaults: { _controller: MeVendangesBundle:Vendangeurs:pageDomaine }
+
 vendanges_vendangeurs_repondre_annonce:
     path:    /vendangeurs/reponse/{id}
     defaults: { _controller: MeVendangesBundle:Vendangeurs:repondre }

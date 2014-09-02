@@ -22,6 +22,7 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class VigneronsController extends Controller
 {
+    // homepage + password forgotten action
     public function indexAction(Request $request)
     {
         $form = $this->createForm(new InscriptionVigneronType());
@@ -77,6 +78,7 @@ class VigneronsController extends Controller
         ));
     }
 
+    // Sign up action
     public function inscriptionAction(Request $request)
     {
     	$vigneron = new Vigneron();
@@ -92,7 +94,7 @@ class VigneronsController extends Controller
             $repository = $this->getDoctrine()->getRepository('MeVendangesBundle:Vigneron');
 
             if($repository->findOneByEmail($vigneron->getEmail())){
-                // welcome message
+                // if email is already in database, set message
                 $this->get('session')->getFlashBag()->add(
                     'notice',
                     'Vous êtes déjà inscrit !'
@@ -149,6 +151,7 @@ class VigneronsController extends Controller
 
     }
 
+    // New post action
     public function nouvelleAnnonceAction(Request $request)
     {
 
@@ -184,6 +187,7 @@ class VigneronsController extends Controller
         ));
     }
 
+    // Modify post action
     public function modifierAnnonceAction($id, Request $request)
     {
         // get current user object
@@ -223,6 +227,7 @@ class VigneronsController extends Controller
         ));
     }
 
+    // Browse potential workers action
     public function consulterAction()
     {
         // fetch all vendangeurs from database
@@ -242,6 +247,7 @@ class VigneronsController extends Controller
         ));
     }
 
+    // Send message to a user action
     public function repondreAction($id, Request $request)
     {
         // get current user object
@@ -298,6 +304,7 @@ class VigneronsController extends Controller
         ));
     }
 
+    // Edit profile action
     public function monProfilAction(Request $request)
     {
         // get current user object
@@ -332,6 +339,7 @@ class VigneronsController extends Controller
         ));
     }
 
+    // Browse my posts action
     public function mesAnnoncesAction()
     {
         // get current user object

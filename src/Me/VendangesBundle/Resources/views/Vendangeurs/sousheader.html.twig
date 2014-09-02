@@ -2,7 +2,7 @@
 <div id="sousheader">Espace vendangeur</div>
 <!-- // sousheader -->
 
-<div id="menu">
+<div id="menuvignerons">
 	{% if app.user and app.user.roles[0] == 'ROLE_VENDANGEUR' %}
 	<a href="{{ path('vendanges_vendangeurs_mon_profil') }}">
 		<div class="boutonnav">GERER MON PROFIL</div>
@@ -15,6 +15,10 @@
 
 	<a href="{{ path('vendanges_vendangeurs_consulter_annonces') }}">
 		<div class="boutonnav">CONSULTEZ LES ANNONCES<br />DES VIGNERONS</div>
+	</a>
+
+	<a href="{{ path('vendanges_vendangeurs_consulter_domaines') }}">
+		<div class="boutonnav">ANNUAIRE<br /> DES VIGNERONS</div>
 	</a>
 
 </div>

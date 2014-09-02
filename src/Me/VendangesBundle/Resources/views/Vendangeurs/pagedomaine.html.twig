@@ -1,69 +1,52 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Consulter les annonces{% endblock %}
-
-{% block inscription %}
-	<div style='display:none'>
-	{{ include('MeVendangesBundle:Vendangeurs:inscription.html.twig') }}
-	</div>
-{% endblock %}
+{% block title %}Domaine {{ vigneron.nom }}{% endblock %}
 
 {% block login %}
-	{{ include('MeVendangesBundle:Vendangeurs:connexion.html.twig')}}
+	{{ include('MeVendangesBundle:Vendangeurs:connexion.html.twig') }}
 {% endblock %}
 
 {% block sousheader %}
 	{{ include('MeVendangesBundle:Vendangeurs:sousheader.html.twig') }}
 {% endblock %}
 
-{% block body %}
-<!-- début sousheader -->
+{% block motdepasse %}{% endblock %}
 
-<!-- début page -->
+{% block body %}
+
+<div style='display:none'>
+	<div id="reponse" rel="reponse">
+		<div class="fermeture"><a  href="#">X</a></div>
+		<h2 id="nom">CONTACTER</h2>
+		<div class="formulaire">
+			<form id="form" action="" method="post">
+
+			<input type="submit" text="Envoyer">
+			</form>
+		</div>
+	</div>
+</div>
+
 <div id="page">
 	{% for flash in app.session.flashbag.get('notice') %}
 		<div class="alert">{{ flash }}</div>
 	{% endfor %}
-	<h1> Les annonces des vignerons</h1>
 
-
-	<!--début filtres-->
-	<div id="filtres">
-		<div class="left">Filtres  : </div>
-		<div class="styled-select">
-			<select id="date"  >
-				<option>par date</option>
-				<option>plus récent</option>
-				<option>plus ancien</option>
-			</select>
-		</div>
-		<div class="styled-select">
-			<select id="departement">
-				<option>par département</option>
-				<option>Bas-Rhin</option>
-				<option>Haut-Rhin</option>
-			</select>
-		</div>
-		<div class="styled-select">
-			<select id="ville">
-				<option>par ville</option>
-				{% for ville in villes %}
-					<option value="{{ ville }}">{{ ville }}</option>
-				{% endfor %}
-				<!-- toutes les villes des annonces vignerons de la BDD-->
-			</select>
-		</div>
-		<div class="styled-select">
-			<select id="logement">
-				<option>logement</option>
-				<option>OUI</option>
-				<option>NON</option>
-			</select>
-		</div>
+	<div id="profilvigneron">
+		<h1>Domaine {{ vigneron.nom }}</h1>
+		<h3>Présentation : </h3>
+		<p>{{ vigneron.presentation }}</p>
+		<p>{{ vigneron.adresse }}</p>
+		<h3>Coordonnées :</h3>
+		<p>{{ vigneron.code }} {{ vigneron.ville }}</p>
+		<p>{{ vigneron.site }}</p>
 	</div>
-	<!--//filtres-->
 
-	<!-- début annonces-->
+	{% if annonces is not empty %}
+		<h2>Les annonces du domaine {{ vigneron.nom }}</h2>
+	{% endif %}
+
+<!-- début annonces-->
 	<div id="annonces">
 
 		
@@ -74,32 +57,22 @@
 				<div class="blocannonce" data-id="{{ loop.index }}" data-ville="{{ annonce.vigneron.ville }}" data-logement="{{ annonce.logement ? 1 : 0 }}" data-code="{{ annonce.vigneron.code|slice(0, 2) }}">
 					<a href="{{ path('vendanges_vendangeurs_repondre_annonce', {'id': annonce.id}) }}"><div class="blocannonceover"></div></a>
 					<span class="titreannonce">{{ annonce.titre }}</span>
-					<span class="texteannonce">Lieu : {{ annonce.vigneron.ville }}<br />
-					Domaine : {{ annonce.vigneron.nom }}<br />
 					Dates de début : {{ annonce.dateDebut | date('d/m/Y') }}<br />
 					Dates de fin : {{ annonce.dateFin | date('d/m/Y') }}<br />
-					Département : {{ annonce.vigneron.code }}<br />
-					Ville : {{ annonce.vigneron.ville }}<br />
 					Logement : {{ annonce.logement ? 'OUI' : 'NON' }}<br />
 					Nourri  : {{ annonce.repas ? 'OUI' : 'NON' }}<br />
 					Salaire : {{ annonce.remuneration }}
-					Places : {{ annonce.places }}
 					</span>
 				</div>
 				{% else %}
 				<div class="blocannonce complet" data-id="{{ loop.index }}" data-ville="{{ annonce.vigneron.ville }}" data-logement="{{ annonce.logement ? 1 : 0 }}" data-code="{{ annonce.vigneron.code|slice(0, 2) }}">
 					<a href="{{ path('vendanges_vendangeurs_repondre_annonce', {'id': annonce.id}) }}"><div class="blocannonceovercomplet">OFFRE COMPLETE</div></a>
 					<span class="titreannonce">{{ annonce.titre }}</span>
-					<span class="texteannonce">Lieu : {{ annonce.vigneron.ville }}<br />
-					Domaine : {{ annonce.vigneron.nom }}<br />
 					Dates de début : {{ annonce.dateDebut | date('d/m/Y') }}<br />
 					Dates de fin : {{ annonce.dateFin | date('d/m/Y') }}<br />
-					Département : {{ annonce.vigneron.code }}<br />
-					Ville : {{ annonce.vigneron.ville }}<br />
 					Logement : {{ annonce.logement ? 'OUI' : 'NON' }}<br />
 					Nourri  : {{ annonce.repas ? 'OUI' : 'NON' }}<br />
 					Salaire : {{ annonce.remuneration }}
-					Places : {{ annonce.places }}
 					</span>
 				</div>
 				{% endif %}
@@ -110,32 +83,22 @@
 				<div class="blocannonce" data-id="{{ loop.index }}" data-ville="{{ annonce.vigneron.ville }}" data-logement="{{ annonce.logement ? 1 : 0 }}" data-code="{{ annonce.vigneron.code|slice(0, 2) }}">
 					<a href="#"><div class="blocannonceover incliquable"></div></a>
 					<span class="titreannonce">{{ annonce.titre }}</span>
-					<span class="texteannonce">Lieu : {{ annonce.vigneron.ville }}<br />
-					Domaine : {{ annonce.vigneron.nom }}<br />
 					Dates de début : {{ annonce.dateDebut | date('d/m/Y') }}<br />
 					Dates de fin : {{ annonce.dateFin | date('d/m/Y') }}<br />
-					Département : {{ annonce.vigneron.code }}<br />
-					Ville : {{ annonce.vigneron.ville }}<br />
 					Logement : {{ annonce.logement ? 'OUI' : 'NON' }}<br />
 					Nourri  : {{ annonce.repas ? 'OUI' : 'NON' }}<br />
 					Salaire : {{ annonce.remuneration }}
-					Places : {{ annonce.places }}
 					</span>
 				</div>
 				{% else %}
 				<div class="blocannonce complet" data-id="{{ loop.index }}" data-ville="{{ annonce.vigneron.ville }}" data-logement="{{ annonce.logement ? 1 : 0 }}" data-code="{{ annonce.vigneron.code|slice(0, 2) }}">
 					<a href="#"><div class="blocannonceovercomplet">OFFRE COMPLETE</div></a>
 					<span class="titreannonce">{{ annonce.titre }}</span>
-					<span class="texteannonce">Lieu : {{ annonce.vigneron.ville }}<br />
-					Domaine : {{ annonce.vigneron.nom }}<br />
 					Dates de début : {{ annonce.dateDebut | date('d/m/Y') }}<br />
 					Dates de fin : {{ annonce.dateFin | date('d/m/Y') }}<br />
-					Département : {{ annonce.vigneron.code }}<br />
-					Ville : {{ annonce.vigneron.ville }}<br />
 					Logement : {{ annonce.logement ? 'OUI' : 'NON' }}<br />
 					Nourri  : {{ annonce.repas ? 'OUI' : 'NON' }}<br />
 					Salaire : {{ annonce.remuneration }}
-					Places : {{ annonce.places }}
 					</span>
 				</div>
 				{% endif %}
@@ -145,5 +108,5 @@
 	</div>
 	<!--//annonces-->   
 </div>
-   <!--/page-->
+<!--/page-->
 {% endblock %}

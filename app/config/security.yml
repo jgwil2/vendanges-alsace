@@ -55,6 +55,9 @@ security:
         - { path: ^/vendangeurs/inscription, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/vignerons/inscription, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/vendangeurs/nouveau-motdepasse, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/vignerons/nouveau-motdepasse, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/vendangeurs/domaines, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/vendangeurs/domaines/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/vendangeurs/, roles: ROLE_VENDANGEUR }
         - { path: ^/vignerons/, roles: ROLE_VIGNERON }
 
