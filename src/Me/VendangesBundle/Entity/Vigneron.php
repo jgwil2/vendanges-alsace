@@ -78,6 +78,11 @@ class Vigneron implements UserInterface, \Serializable
     protected $annonces;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $active;
+
+    /**
      * @Assert\File(maxSize="6000000")
      */
     private $photo;
@@ -158,7 +163,7 @@ class Vigneron implements UserInterface, \Serializable
     public function __construct()
     {
     	//$this->$annonces = new ArrayCollection();
-        $this->isActive = true;
+        $this->active = true;
         $this->salt = sha1(uniqid(mt_rand(), true));
     }
 
@@ -503,5 +508,28 @@ class Vigneron implements UserInterface, \Serializable
         $this->salt = $salt;
 
         return $this;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Vigneron
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 }

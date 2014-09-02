@@ -36,8 +36,8 @@
 		<h1>Domaine {{ vigneron.nom }}</h1>
 		<h3>Présentation : </h3>
 		<p>{{ vigneron.presentation }}</p>
-		<p>{{ vigneron.adresse }}</p>
 		<h3>Coordonnées :</h3>
+		<p>{{ vigneron.adresse }}</p>
 		<p>{{ vigneron.code }} {{ vigneron.ville }}</p>
 		<p>{{ vigneron.site }}</p>
 	</div>
@@ -61,7 +61,8 @@
 					Dates de fin : {{ annonce.dateFin | date('d/m/Y') }}<br />
 					Logement : {{ annonce.logement ? 'OUI' : 'NON' }}<br />
 					Nourri  : {{ annonce.repas ? 'OUI' : 'NON' }}<br />
-					Salaire : {{ annonce.remuneration }}
+					Salaire : {{ annonce.remuneration }}<br />
+					Places : {{ annonce.places }}
 					</span>
 				</div>
 				{% else %}
@@ -72,7 +73,8 @@
 					Dates de fin : {{ annonce.dateFin | date('d/m/Y') }}<br />
 					Logement : {{ annonce.logement ? 'OUI' : 'NON' }}<br />
 					Nourri  : {{ annonce.repas ? 'OUI' : 'NON' }}<br />
-					Salaire : {{ annonce.remuneration }}
+					Salaire : {{ annonce.remuneration }}<br />
+					Places : {{ annonce.places }}
 					</span>
 				</div>
 				{% endif %}
@@ -87,7 +89,8 @@
 					Dates de fin : {{ annonce.dateFin | date('d/m/Y') }}<br />
 					Logement : {{ annonce.logement ? 'OUI' : 'NON' }}<br />
 					Nourri  : {{ annonce.repas ? 'OUI' : 'NON' }}<br />
-					Salaire : {{ annonce.remuneration }}
+					Salaire : {{ annonce.remuneration }}<br />
+					Places : {{ annonce.places }}
 					</span>
 				</div>
 				{% else %}
@@ -98,7 +101,8 @@
 					Dates de fin : {{ annonce.dateFin | date('d/m/Y') }}<br />
 					Logement : {{ annonce.logement ? 'OUI' : 'NON' }}<br />
 					Nourri  : {{ annonce.repas ? 'OUI' : 'NON' }}<br />
-					Salaire : {{ annonce.remuneration }}
+					Salaire : {{ annonce.remuneration }}<br />
+					Places : {{ annonce.places }}
 					</span>
 				</div>
 				{% endif %}

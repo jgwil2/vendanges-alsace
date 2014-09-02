@@ -385,7 +385,11 @@ a:hover .blocannonceovercomplet{text-decoration: none; font-style: normal}
 
 #page #annonces .titreannonce{font-size: 24px; color: #48720c; font-family: 'Roboto Condensed', sans-serif; font-weight: 400; display: block; margin-bottom: 10px;}
 
+#page #annoncesvignerons .titreannonce{font-size: 24px; color: #48720c; font-family: 'Roboto Condensed', sans-serif; font-weight: 400; display: block; margin-bottom: 10px;}
+
 #page #annonces .texteannonce{font-family: 'Roboto Condensed', sans-serif; font-weight: 400;  line-height:18px; display: block; font-size: 14px; color: #48720c;}
+
+#page #annoncesvignerons .texteannonce{font-family: 'Roboto Condensed', sans-serif; font-weight: 400;  line-height:18px; display: block; font-size: 14px; color: #48720c;}
 
 #page a{color: #48720c;}
 
@@ -543,6 +547,8 @@ width: 30px;
 
 
 #footer .footer{width: 990px; color: #ffffff; font-size: 12px; display: block; text-align: center; margin-right: auto; margin-left: auto; font-weight: bold;}
+
+#footer a{color: #fff;}
 
 #page #annoncesvendangeurs{
 display: block;

@@ -33,23 +33,22 @@
 	{% endfor %}
  <!-- début page -->
 <div id="page">
-	<h1> Les domaines des vignerons</h1>
+	<h1>Les domaines des vignerons</h1>
 
 	<!-- début annonces-->
 	<div id="annoncesvignerons">
 		{% for vigneron in vignerons %}
-
+			{% if vigneron.active %}
 			<div class="blocannonce">
 				<a href="#reponse" class="reponse" data-nom="{{ vigneron.nom }}" data-id="{{ vigneron.id }}"><div class="blocannonceover"></div></a>
-				<span class="titreannonce">{{ vigneron.nom }}</span><br />
+				<span class="titreannonce">{{ vigneron.nom }}</span>
 				<span class="texteannonce">
-					<p>{{ vigneron.code }}</p>
-					<p>{{ vigneron.ville }}</p>
-					<p>{{ vigneron.site }}</p>
+					<p>{{ vigneron.adresse }}</p>
+					<p>{{ vigneron.code }} {{ vigneron.ville }}</p>
 					<a href="{{ path('vendanges_vendangeurs_page_domaine', {'id': vigneron.id }) }}">&#65515; Voir la fiche du vigneron</a>
 				</span>
 			</div>
-
+			{% endif %}
 		{% endfor %}
 	</div>
 	<!--//annonces-->   

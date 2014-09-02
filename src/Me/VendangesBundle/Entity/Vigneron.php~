@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -57,7 +58,7 @@ class Vigneron implements UserInterface, \Serializable
     protected $presentation;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $photoPath;
 
@@ -76,6 +77,14 @@ class Vigneron implements UserInterface, \Serializable
      */
     protected $annonces;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $active;
+
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
     private $photo;
 
     private $temp;
@@ -155,6 +164,7 @@ class Vigneron implements UserInterface, \Serializable
     {
     	//$this->$annonces = new ArrayCollection();
         $this->isActive = true;
+        $this->salt = sha1(uniqid(mt_rand(), true));
     }
 
     // Convenience functions for getting photo file path
@@ -387,7 +397,7 @@ class Vigneron implements UserInterface, \Serializable
     {
         // you *may* need a real salt depending on your encoder
         // see section on salt below
-        return null;
+        return $this->salt;
     }
 
     /**
@@ -483,6 +493,19 @@ class Vigneron implements UserInterface, \Serializable
     public function setPassword($password)
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return Vigneron
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
 
         return $this;
     }

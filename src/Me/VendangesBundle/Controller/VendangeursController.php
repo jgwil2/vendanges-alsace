@@ -201,6 +201,10 @@ class VendangeursController extends Controller
         $vigneronRepository = $this->getDoctrine()->getRepository('MeVendangesBundle:Vigneron');
         $vigneron = $vigneronRepository->findOneById($id);
 
+        if(!$vigneron->getActive()){
+            return new RedirectResponse($this->generateUrl('vendanges_vendangeurs_consulter_domaines'));
+        }
+
         return $this->render('MeVendangesBundle:Vendangeurs:pagedomaine.html.twig', array(
             'vigneron' => $vigneron,
             'annonces' =>$annonces
