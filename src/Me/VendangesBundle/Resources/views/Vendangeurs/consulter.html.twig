@@ -2,6 +2,21 @@
 
 {% block title %}Consulter les annonces{% endblock %}
 
+{% block motdepasse %}
+<div style='display:none'>
+    <div id="motdepasseoublie" rel="motdepasseoublie">
+        <div class="fermeture"><a href="#">X</a></div>
+        <h2>MOT DE PASSE OUBLIE</h2>
+        Saisissez votre adresse email pour recevoir un nouveau mot de passe :
+        <form action="{{ path('vendanges_vendangeurs') }}" method="post">
+            {{ form_label(motdepasseForm.email, 'Adresse email') }}
+            {{ form_widget(motdepasseForm.email, { 'attr': { 'class': 'grandchamp' }}) }}
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
+</div>
+{% endblock %}
+
 {% block inscription %}
 	<div style='display:none'>
 	{{ include('MeVendangesBundle:Vendangeurs:inscription.html.twig') }}

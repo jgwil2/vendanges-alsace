@@ -33,7 +33,7 @@ class VigneronsController extends Controller
 
         if($motdepasseForm->isSubmitted()){
 
-            // fetch all vendangeurs from database
+            // fetch all vignerons from database
             $repository = $this->getDoctrine()->getRepository('MeVendangesBundle:Vigneron');
 
             $vigneron = $repository->findOneByEmail($motdepasseForm['email']->getData());
@@ -66,7 +66,7 @@ class VigneronsController extends Controller
                 'Votre nouveau mot de passe vous a été envoyé !'
                 );
 
-            return $this->render('MeVendangesBundle:Vendangeurs:index.html.twig', array(
+            return $this->render('MeVendangesBundle:Vignerons:index.html.twig', array(
                 'form' => $form->createView(),
                 'motdepasseForm' => $motdepasseForm->createView()
             ));
