@@ -89,7 +89,7 @@ class VigneronsController extends Controller
 
 		$form->handleRequest($request);
 
-		if($form->isSubmitted()){
+		if($form->isValid()){
 
             $repository = $this->getDoctrine()->getRepository('MeVendangesBundle:Vigneron');
 
@@ -140,7 +140,8 @@ class VigneronsController extends Controller
 
 			return $this->render('MeVendangesBundle:Vignerons:index.html.twig', array(
                 'vigneron' => $vigneron,
-                'form' => $form->createView()
+                'form' => $form->createView(),
+                'motdepasseForm' => $motdepasseForm->createView(),
             ));
 		}
 

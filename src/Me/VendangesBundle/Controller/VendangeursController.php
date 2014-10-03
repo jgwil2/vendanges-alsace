@@ -90,7 +90,7 @@ class VendangeursController extends Controller
 
 		$form->handleRequest($request);
 
-		if($form->isSubmitted()){
+		if($form->isValid()){
 
             $repository = $this->getDoctrine()->getRepository('MeVendangesBundle:Vendangeur');
 
@@ -141,7 +141,8 @@ class VendangeursController extends Controller
 
 			return $this->render('MeVendangesBundle:Vendangeurs:index.html.twig', array(
                 'vendangeur' => $vendangeur,
-                'form' => $form->createView()
+                'form' => $form->createView(),
+                'motdepasseForm' => $motdepasseForm->createView()
             ));
 		}
 

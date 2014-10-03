@@ -20,7 +20,8 @@ class InscriptionVendangeurType extends AbstractType
 			->add('pays', 'text')
 			->add('email', 'text')
 			->add('pays', 'text')
-			->add('password', 'password');
+			->add('password', 'password')
+			->add('captcha', 'captcha');
 
     }
 

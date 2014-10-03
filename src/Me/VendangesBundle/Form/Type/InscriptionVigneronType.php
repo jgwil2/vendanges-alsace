@@ -19,7 +19,8 @@ class InscriptionVigneronType extends AbstractType
 			->add('email', 'text')
 			->add('presentation', 'textarea')
 			//->add('photo', 'file')
-			->add('password', 'password');
+			->add('password', 'password')
+			->add('captcha', 'captcha');
 
     }
 
